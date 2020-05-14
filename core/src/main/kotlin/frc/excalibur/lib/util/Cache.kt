@@ -33,7 +33,7 @@ open class Cache {
      * @return the cached value, **might not be of type [T]** - if the previous value was of a
      * different type. If you want to get null in case of a wrong type, use [invoke].
      */
-    fun <T> cache(handle: String, data: () -> T): Any {
+    fun <T> cache(handle: String, data: () -> T): Any? {
         return map.getOrPut(key = handle, defaultValue = data)
     }
 
