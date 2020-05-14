@@ -1,0 +1,10 @@
+
+dependencies {
+    api wpi.deps.wpilib()
+}
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs += "-XXLanguage:+InlineClasses"
+    }
+}
