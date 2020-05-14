@@ -1,4 +1,4 @@
-package lib.util
+package frc.excalibur.lib.util
 
 /**
  * A "cache" to create variables similar to C local static variables.
@@ -14,12 +14,13 @@ open class Cache {
      *
      * @param T the type of the cached value
      * @param handle the "key" under which the value is saved
-     * @param data a lambda to compute the value, will be called only if the
-     * @return null if the existing value isn't of type [T]. To get the value anyways, use [cache].
+     * @param data a lambda to compute the value, will be called only if there is the cached value
+     * doesn't exist or is of a different type.
+     * @return the cached value, or if it doesn't exist it will return the result of [data]
      */
-    inline operator fun <reified T> invoke(handle: String, noinline data: () -> T): T? {
+    inline operator fun <reified T> invoke(handle: String, noinline data: () -> T): T {
         val value = cache(handle, data)
-        return if(value is T) value else null
+        return if(value is T) value else data()
     }
 
     /**
@@ -32,7 +33,7 @@ open class Cache {
      * @return the cached value, **might not be of type [T]** - if the previous value was of a
      * different type. If you want to get null in case of a wrong type, use [invoke].
      */
-    fun <T> cache(handle: String, data: () -> T): Any? {
+    fun <T> cache(handle: String, data: () -> T): Any {
         return map.getOrPut(key = handle, defaultValue = data)
     }
 
