@@ -1,0 +1,13 @@
+repositories {
+    maven { url "https://repo1.maven.org/maven2/" }
+}
+dependencies {
+    implementation "com.kauailabs.navx.frc:navx-java:3.1.413"
+    api wpi.deps.wpilib()
+}
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs += "-XXLanguage:+InlineClasses"
+    }
+}

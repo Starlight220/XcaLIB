@@ -1,0 +1,27 @@
+.project
+.classpath
+*/.classpath
+*/.project
+*/bin/
+*.bin
+*.properties
+*.lock
+*.prefs
+
+.idea/*
+*.class
+*.tab
+*.keystream
+*.len
+*.at
+*.tab_i
+
+*.jar
+
+
+/build/
+*/build/*
+#for now: TODO : fix command module
+
+command/
+

@@ -1,0 +1,24 @@
+repositories {
+    maven { url "http://devsite.ctr-electronics.com/maven/release/" }
+}
+
+dependencies {
+    implementation "com.ctre.phoenix:api-java:5.18.3"
+    implementation "com.ctre.phoenix:wpiapi-java:5.18.3"
+
+    api project(":core")
+    api wpi.deps.wpilib()
+}
+
+
+
+//dependencies {
+//    implementation "com.kauailabs.navx.frc:navx-java:3.1.413"
+//    api wpi.deps.wpilib()
+//}
+//
+//compileKotlin {
+//    kotlinOptions {
+//        freeCompilerArgs += "-XXLanguage:+InlineClasses"
+//    }
+//}
