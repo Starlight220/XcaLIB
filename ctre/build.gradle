@@ -1,12 +1,7 @@
-//repositories {
-//    maven { url "http://devsite.ctr-electronics.com/maven/release/" }
-//}
-
+version = "1.0.0"
 dependencies {
-//    implementation "com.ctre.phoenix:api-java:5.18.3"
-//    implementation "com.ctre.phoenix:wpiapi-java:5.18.3"
     implementation wpi.deps.vendor.java()
 
-    api project(":core")
     api wpi.deps.wpilib()
+    api project(":core")
 }

@@ -1,11 +1,7 @@
-//repositories {
-//    maven { url "http://www.revrobotics.com/content/sw/max/sdk/maven/" }
-//}
-
+version = "1.0.0"
 dependencies {
-//    implementation "com.revrobotics.frc:SparkMax-java:1.5.2"
     implementation wpi.deps.vendor.java()
 
-    api project(":core")
     api wpi.deps.wpilib()
+    api project(":core")
 }
