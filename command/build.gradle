@@ -1,0 +1,9 @@
+repositories {
+    maven { url "https://jitpack.io" }
+}
+dependencies {
+//    implementation "edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:wpilib"
+    api wpi.deps.wpilib()
+    implementation wpi.deps.vendor.java()
+    api project(":core")
+}
