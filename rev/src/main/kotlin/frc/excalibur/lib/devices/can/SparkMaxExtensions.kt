@@ -3,7 +3,7 @@ package frc.excalibur.lib.devices.can
 import com.revrobotics.CANPIDController
 import com.revrobotics.CANSparkMax.ExternalFollower.kFollowerDisabled
 import com.revrobotics.ControlType
-//import frc.excalibur.lib.util.PIDConfig
+import frc.excalibur.lib.math.PIDConfig
 import com.revrobotics.CANError as Error
 import com.revrobotics.CANSparkMax as SparkMax
 import edu.wpi.first.wpilibj.DriverStation as DS
@@ -33,13 +33,13 @@ operator fun Encoder.not() : Encoder{
     return this
 }
 
-///**
-// * Applies the values of a PIDConfig object to this PID controller.
-// * @param config the config object
-// * @receiver the PID controller that is configured
-// */
-//infix fun CANPIDController.configuredBy(config : PIDConfig) : CANPIDController =
-//        config.applyREVController(this)
+/**
+* Applies the values of a PIDConfig object to this PID controller.
+* @param config the config object
+* @receiver the PID controller that is configured
+*/
+infix fun CANPIDController.configuredBy(config : PIDConfig) : CANPIDController =
+       config.applyREVController(this)
 
 /**
  * Reports an error to the DS if this object isn't [CANError.kOk][Error.kOk]
@@ -103,10 +103,10 @@ operator fun Encoder.unaryMinus(){
 }
 
 
-//fun PIDConfig.applyREVController(controller : CANPIDController): CANPIDController{
-//    !controller.setP(p)
-//    !controller.setI(i)
-//    !controller.setD(d)
-//    !controller.setFF(aff)
-//    return controller
-//}
+fun PIDConfig.applyREVController(controller : CANPIDController): CANPIDController{
+   !controller.setP(p)
+   !controller.setI(i)
+   !controller.setD(d)
+   !controller.setFF(aff)
+   return controller
+}
