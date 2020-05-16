@@ -69,10 +69,6 @@ infix fun SparkMax.opposes(master: SparkMax) : SparkMax{
     !this.follow(master, true)
     return this
 }
-//
-//infix fun SparkMax.follows(master: TalonSRX){
-//    this.follow(SparkMax.ExternalFollower.kFollowerPhoenix, master.deviceID)
-//}
 
 /**
  * Sets the position and velocity factors.
@@ -102,7 +98,11 @@ operator fun Encoder.unaryMinus(){
     !this.setPosition(0.0)
 }
 
-
+/**
+ * Applies the values of a PIDConfig object to this PID controller.
+ * @param controller the PID controller that is configured
+ * @receiver the config object
+ */
 fun PIDConfig.applyREVController(controller : CANPIDController): CANPIDController{
    !controller.setP(p)
    !controller.setI(i)

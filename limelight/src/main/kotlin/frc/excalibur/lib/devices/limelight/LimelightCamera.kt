@@ -1,4 +1,4 @@
-package frc.excalibur.lib.devices.can.limelight
+package frc.excalibur.lib.devices.limelight
 
 import edu.wpi.first.networktables.NetworkTableInstance
 

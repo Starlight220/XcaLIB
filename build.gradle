@@ -14,7 +14,7 @@ subprojects {
     apply plugin: "maven-publish"
 
     group = "frc.excalibur.lib"
-    version = "0.0.0"
+    version = "1.0.0"
 
     repositories {
         jcenter()
