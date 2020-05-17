@@ -6,4 +6,5 @@ include 'rev'
 include 'core'
 include 'ctre'
 include 'command'
+include 'sim'
 
