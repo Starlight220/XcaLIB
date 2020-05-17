@@ -1,10 +1,11 @@
 rootProject.name = 'XcaLib'
 
 include 'limelight'
-include 'kauai'
+
 include 'rev'
 include 'core'
 include 'ctre'
 include 'command'
 include 'sim'
 
+//include 'kauai'
