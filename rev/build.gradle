@@ -1,6 +1,6 @@
 version = "1.0.1"
 dependencies {
-    implementation wpi.deps.vendor.java()
+    api wpi.deps.vendor.java()
 
     api wpi.deps.wpilib()
     api project(":core")

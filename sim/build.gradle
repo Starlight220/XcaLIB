@@ -1,0 +1,13 @@
+version = "1.0.0"
+repositories {
+    maven {url "http://www.revrobotics.com/content/sw/max/sdk/maven/"}
+}
+dependencies {
+    api project(":rev")
+
+    api wpi.deps.wpilib()
+    api project(":core")
+}
+compileKotlin {
+
+}
