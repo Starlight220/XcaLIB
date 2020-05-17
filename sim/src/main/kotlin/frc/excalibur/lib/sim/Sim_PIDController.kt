@@ -11,7 +11,10 @@ import kotlin.TODO
 import com.revrobotics.CANError as Error
 import com.revrobotics.CANPIDController as PidController
 
-internal class Sim_PIDController(private val device: CANSparkMax, private val controlType: Boolean) :
+internal class Sim_PIDController(
+    private val device: CANSparkMax,
+    private val controlType: Boolean
+) :
     PidController(device),
     Sim_Wrapper {
     private var _i: Double = 0.0
@@ -129,11 +132,14 @@ internal class Sim_PIDController(private val device: CANSparkMax, private val co
 
     override fun periodic() {
         _mockController.setpoint = _reference
-        val measurement: Double = if (controlType) _feedbackSensor.position else _feedbackSensor.velocity
+        val measurement: Double =
+            if (controlType) _feedbackSensor.position else _feedbackSensor.velocity
         device.set(
             when (_controlType) {
                 ControlType.kDutyCycle -> _reference
-                ControlType.kVelocity, ControlType.kPosition -> _mockController.calculate(measurement)
+                ControlType.kVelocity, ControlType.kPosition -> _mockController.calculate(
+                    measurement
+                )
                 ControlType.kVoltage -> _reference / 12.0
                 ControlType.kSmartMotion -> TODO()
                 ControlType.kCurrent -> TODO()

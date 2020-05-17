@@ -5,6 +5,10 @@ import frc.excalibur.lib.interfaces.Initiable
 import frc.excalibur.lib.interfaces.Releasable
 import frc.excalibur.lib.test.Testable
 
+/**
+ * A more advanced Subsystem base class.
+ * @see [XSubsystem.subsystems]
+ */
 abstract class XSubsystem : SubsystemBase(), Releasable, Testable, Initiable {
     companion object {
         /**

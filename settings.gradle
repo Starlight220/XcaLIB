@@ -1,7 +1,6 @@
 rootProject.name = 'XcaLib'
 
 include 'limelight'
-
 include 'rev'
 include 'core'
 include 'ctre'

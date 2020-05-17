@@ -5,7 +5,7 @@ import edu.wpi.first.networktables.NetworkTableInstance
 /**
  * Limelight [docs](https://docs.limelightvision.io/en/latest/)
  */
-open class LimelightCamera(private val tablename: String = "limelight") {
+open class LimelightCamera(tablename: String = "limelight") {
     private val table = NetworkTableInstance.getDefault().getTable(tablename)
     private fun getEntry(data: String) = table.getEntry(data)
 
@@ -89,25 +89,28 @@ open class LimelightCamera(private val tablename: String = "limelight") {
      */
     val tvert: Double
         get() = getEntry("tvert").getDouble(0.0)
-
     /*
-           Values:
-               Getters:
-                   tv - Whether the limelight has any valid targets (0 or 1)
-                   tx - Horizontal Offset From Crosshair To Target (LL1: -27 degrees to 27 degrees | LL2: -29.8 to 29.8 degrees)
-                   ty - Vertical Offset From Crosshair To Target (LL1: -20.5 degrees to 20.5 degrees | LL2: -24.85 to 24.85 degrees)
-                   ta - Target Area (0% of image to 100% of image)
-                   tshort - Sidelength of shortest side of the fitted bounding box (pixels)
-                   tlong - Sidelength of longest side of the fitted bounding box (pixels)
-                   thor - Horizontal sidelength of the rough bounding box (0 - 320 pixels)
-                   tvert - Vertical sidelength of the rough bounding box (0 - 320 pixels)
-               Setters:
-                   LED mode : 1 (off), 2 (blink), 3 (on)
-                   Cam Mode : 0 Vision, 1 Driving
-       */
+        Values:
+             Getters:
+                 tv - Whether the limelight has any valid targets (0 or 1)
+                 tx - Horizontal Offset From Crosshair To Target
+                    (LL1: -27 degrees to 27 degrees | LL2: -29.8 to 29.8 degrees)
+                 ty - Vertical Offset From Crosshair To Target
+                 (LL1: -20.5 degrees to 20.5 degrees | LL2: -24.85 to 24.85 degrees)
+                 ta - Target Area (0% of image to 100% of image)
+                 tshort - Sidelength of shortest side of the fitted bounding box (pixels)
+                 tlong - Sidelength of longest side of the fitted bounding box (pixels)
+                 thor - Horizontal sidelength of the rough bounding box (0 - 320 pixels)
+                 tvert - Vertical sidelength of the rough bounding box (0 - 320 pixels)
+             Setters:
+                 LED mode : 1 (off), 2 (blink), 3 (on)
+                 Cam Mode : 0 Vision, 1 Driving
+      */
 
-
-    enum class CamMode(val value: Int) {
+    /**
+     * Cam Mode : 0 Vision, 1 Driving
+     */
+    enum class CamMode(internal val value: Int) {
         /**
          * Processing pipeline is activated.
          */
@@ -119,6 +122,10 @@ open class LimelightCamera(private val tablename: String = "limelight") {
         DRIVING(1);
 
         companion object {
+            /**
+             * Gets the [CamMode] constant that corresponds to [number]
+             * @throws IllegalArgumentException if there is no corresponding constant.
+             */
             fun fromNumber(number: Int): CamMode = when (number) {
                 0 -> VISION
                 1 -> DRIVING
@@ -127,7 +134,10 @@ open class LimelightCamera(private val tablename: String = "limelight") {
         }
     }
 
-    enum class LedMode(val value: Int) {
+    /**
+     * LED mode : 0 (pipeline default), 1 (off), 2 (blink), 3 (on)
+     */
+    enum class LedMode(internal val value: Int) {
         /**
          * The pipeline default
          */
@@ -149,6 +159,10 @@ open class LimelightCamera(private val tablename: String = "limelight") {
         ON(3);
 
         companion object {
+            /**
+             * Gets the [CamMode] constant that corresponds to [number]
+             * @throws IllegalArgumentException if there is no corresponding constant.
+             */
             fun fromNumber(number: Int): LedMode = when (number) {
                 0 -> DEFAULT
                 1 -> OFF
@@ -159,7 +173,9 @@ open class LimelightCamera(private val tablename: String = "limelight") {
         }
     }
 
-
+    /**
+     * Add to this map to store vision pipelines by string values.
+     */
     object Pipelines : Map<String, Int> by mutableMapOf()
 }
 

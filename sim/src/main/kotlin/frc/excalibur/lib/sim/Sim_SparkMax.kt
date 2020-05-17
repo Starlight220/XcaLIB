@@ -1,10 +1,7 @@
-package sim
+package frc.excalibur.lib.sim
 
 import com.revrobotics.AlternateEncoderType
 import edu.wpi.first.wpilibj.PWM
-import frc.excalibur.lib.sim.Sim_Encoder
-import frc.excalibur.lib.sim.Sim_PIDController
-import frc.excalibur.lib.sim.Sim_Wrapper
 import kotlin.Boolean
 import kotlin.Double
 import kotlin.Int
@@ -76,7 +73,10 @@ class Sim_SparkMax(
         return _altencoder
     }
 
-    override fun getAlternateEncoder(sensorType: AlternateEncoderType?, counts_per_rev: Int): Encoder {
+    override fun getAlternateEncoder(
+        sensorType: AlternateEncoderType?,
+        counts_per_rev: Int
+    ): Encoder {
         return _altencoder
     }
 

@@ -20,7 +20,7 @@ open class Cache {
      */
     inline operator fun <reified T> invoke(handle: String, noinline data: () -> T): T {
         val value = cache(handle, data)
-        return if(value is T) value else data()
+        return if (value is T) value else data()
     }
 
     /**

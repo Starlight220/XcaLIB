@@ -3,7 +3,6 @@ package frc.excalibur.lib.sim
 import com.revrobotics.CANSparkMax
 import com.revrobotics.CANSparkMaxLowLevel.MotorType
 import edu.wpi.first.wpilibj.RobotBase
-import sim.Sim_SparkMax
 
 interface Sim_Wrapper {
     companion object {

@@ -24,8 +24,8 @@ subprojects {
     }
 
     tasks.dokka {
-        outputFormat = "html"
-        outputDirectory = "$buildDir/javadoc"
+        outputFormat = 'gfm'
+        outputDirectory = "$buildDir/docs"
     }
 
     java {
