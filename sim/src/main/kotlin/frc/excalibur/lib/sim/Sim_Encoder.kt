@@ -56,7 +56,5 @@ class Sim_Encoder(device: SparkMax, var rate: Double) : Encoder(device), Sim_Wra
     }
 
     override fun periodic() {
-
     }
-
 }

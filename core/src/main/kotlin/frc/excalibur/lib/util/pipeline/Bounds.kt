@@ -9,5 +9,4 @@ inline class Bounds(val range: ClosedFloatingPointRange<Double>) {
         in range.endInclusive..Double.MAX_VALUE -> range.endInclusive
         else -> value
     }
-
 }

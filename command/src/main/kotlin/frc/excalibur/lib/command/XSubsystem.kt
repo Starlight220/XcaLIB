@@ -19,10 +19,8 @@ abstract class XSubsystem : SubsystemBase(), Releasable, Testable, Initiable {
     }
 
     override fun initTestVectors() {
-
     }
 
     override fun init() {
-
     }
 }

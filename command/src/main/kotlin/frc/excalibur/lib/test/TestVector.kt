@@ -58,9 +58,8 @@ class TestVector(
 
         private var lastSelected: TestVector = default
 
-
         override fun init() {
-            //disable the scheduler, stop everything
+            // disable the scheduler, stop everything
             CommandScheduler.getInstance().disable()
             XSubsystem.subsystems.forEach {
                 it.apply {
@@ -70,7 +69,7 @@ class TestVector(
             }
             -this
 
-            //initialize the SmartDashboard part
+            // initialize the SmartDashboard part
             entry.setNumber(0.0)
             chooser.setDefaultOption("none", default)
             vectors.forEach(chooser::addOption)
@@ -79,7 +78,7 @@ class TestVector(
         }
 
         private fun run() {
-            //if not enabled on test mode, exit
+            // if not enabled on test mode, exit
             if (DriverStation.getInstance().run { isDisabled || !isTest }) {
                 -this
                 return
@@ -87,16 +86,15 @@ class TestVector(
             var selected: TestVector = default
             chooser.selected?.let { selected = it }
 
-
-            //if changed, zero the previous one
+            // if changed, zero the previous one
             if (selected != lastSelected) {
                 -lastSelected
             }
 
-            //apply value
+            // apply value
             selected(entry.getDouble(0.0))
 
-            //remember current selection for next iteration
+            // remember current selection for next iteration
             lastSelected = selected
         }
 

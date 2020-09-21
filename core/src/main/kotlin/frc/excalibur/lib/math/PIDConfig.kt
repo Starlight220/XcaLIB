@@ -29,4 +29,3 @@ data class PIDConfig(
     val wpiController: PIDController
         get() = PIDController(p, i, d)
 }
-

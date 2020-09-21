@@ -1,15 +1,15 @@
 package frc.excalibur.lib.sim
 
 import com.revrobotics.AlternateEncoderType
+import com.revrobotics.CANEncoder as Encoder
+import com.revrobotics.CANError as Error
+import com.revrobotics.CANPIDController as PIDController
+import com.revrobotics.CANSparkMax as SparkMax
 import edu.wpi.first.wpilibj.PWM
 import kotlin.Boolean
 import kotlin.Double
 import kotlin.Int
 import kotlin.TODO
-import com.revrobotics.CANEncoder as Encoder
-import com.revrobotics.CANError as Error
-import com.revrobotics.CANPIDController as PIDController
-import com.revrobotics.CANSparkMax as SparkMax
 
 class Sim_SparkMax(
     id: Int,
@@ -35,7 +35,6 @@ class Sim_SparkMax(
         _encoder.position = value
         return Error.kOk
     }
-
 
     override fun burnFlash(): Error {
         return Error.kOk
@@ -68,7 +67,6 @@ class Sim_SparkMax(
         return Error.kOk
     }
 
-
     override fun getAlternateEncoder(): Encoder {
         return _altencoder
     }
@@ -83,7 +81,6 @@ class Sim_SparkMax(
     override fun getInverted(): Boolean {
         return _isInverted
     }
-
 
     override fun setAltEncPosition(value: Double): Error {
         _altencoder.position = value
@@ -121,6 +118,5 @@ class Sim_SparkMax(
             _altencoder.position +
                     (_assignedSpeed * (if (_altencoder is Sim_Encoder) (_altencoder as Sim_Encoder).rate else 1.0))
         )
-
     }
 }

@@ -2,17 +2,20 @@ package frc.excalibur.lib.trajectory
 
 import edu.wpi.first.wpilibj.DriverStation
 import edu.wpi.first.wpilibj.geometry.Pose2d
-import edu.wpi.first.wpilibj.trajectory.*
+import edu.wpi.first.wpilibj.trajectory.Trajectory
+import edu.wpi.first.wpilibj.trajectory.TrajectoryConfig
+import edu.wpi.first.wpilibj.trajectory.TrajectoryGenerator
+import edu.wpi.first.wpilibj.trajectory.TrajectoryUtil
 import frc.excalibur.lib.util.Cache
 import frc.excalibur.lib.util.lang.asDeployPath
+import java.io.File
 import java.io.IOException
-import java.util.*
 import kotlin.collections.HashMap
 
 private typealias TrajectoryMap = HashMap<String, TrajectorySource>
 
 private operator fun TrajectoryMap.get(name: String, default: TrajectorySource): TrajectorySource =
-    getOrDefault(name, default)
+        getOrDefault(name, default)
 
 /**
  * A class representing a source for a [Trajectory], with a subclass for each type -
@@ -89,7 +92,7 @@ sealed class TrajectorySource {
      */
     object NullTrajectory : TrajectorySource() {
         override val name: String = "null"
-        override fun getTrajectory(): Trajectory = Trajectory(Collections.emptyList())
+        override fun getTrajectory(): Trajectory = Trajectory(listOf(Trajectory.State()))
     }
 
     /**
@@ -101,7 +104,7 @@ sealed class TrajectorySource {
     ) : TrajectorySource() {
         override fun getTrajectory(): Trajectory = cache(name) {
             try {
-                val path = "output/$file.wpilib.json".asDeployPath()
+                val path = "output${File.separator}$file.wpilib.json".asDeployPath()
                 return@cache TrajectoryUtil.fromPathweaverJson(path)
             } catch (e: IOException) {
                 DriverStation.reportError(
@@ -112,7 +115,6 @@ sealed class TrajectorySource {
             }
         }
     }
-
 
     /**
      * A trajectory computed onboard the RIO.

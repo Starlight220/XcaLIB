@@ -1,6 +1,8 @@
 package frc.excalibur.lib.sim
 
 import com.revrobotics.CANEncoder
+import com.revrobotics.CANError as Error
+import com.revrobotics.CANPIDController as PidController
 import com.revrobotics.CANSensor
 import com.revrobotics.CANSparkMax
 import com.revrobotics.ControlType
@@ -8,8 +10,6 @@ import edu.wpi.first.wpilibj.controller.PIDController
 import kotlin.Boolean
 import kotlin.Double
 import kotlin.TODO
-import com.revrobotics.CANError as Error
-import com.revrobotics.CANPIDController as PidController
 
 internal class Sim_PIDController(
     private val device: CANSparkMax,
@@ -79,22 +79,18 @@ internal class Sim_PIDController(
         return Error.kOk
     }
 
-
     override fun setFF(gain: Double): Error {
         _ff = gain
         return Error.kOk
     }
 
-
     override fun getP(): Double {
         return _p
     }
 
-
     override fun getFF(): Double {
         return _ff
     }
-
 
     override fun setReference(value: Double, ctrl: ControlType?): Error {
         _reference = value
@@ -104,13 +100,11 @@ internal class Sim_PIDController(
         return Error.kOk
     }
 
-
     override fun setOutputRange(min: Double, max: Double): Error {
         _minOut = min
         _maxOut = max
         return Error.kOk
     }
-
 
     override fun getI(): Double {
         return _i

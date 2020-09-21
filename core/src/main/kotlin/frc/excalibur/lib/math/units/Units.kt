@@ -65,5 +65,4 @@ fun Double.amperes(): SIUnit<Ampere> =
 fun Double.milliamperes(): SIUnit<Ampere> =
     SIUnit<Ampere>(0.001 * this)
 
-
 interface SIKey

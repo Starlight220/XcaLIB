@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Compressor
 import edu.wpi.first.wpilibj.DoubleSolenoid
 import edu.wpi.first.wpilibj.Solenoid
 
-
 /**
  * A class representing a [CTRE Pneumatic Control Module](http://www.ctr-electronics.com/pcm.html).
  * Can be used to create [Solenoid] and [DoubleSolenoid] easily with the [DoubleSolenoid]
@@ -32,7 +31,6 @@ class PneumaticsControlModule private constructor(private val canID: Int = 0) {
      */
     val pressureSwitch: Boolean
         get() = compressor.pressureSwitchValue
-
 
     companion object {
         private val instances: MutableMap<Int, PCM> = mutableMapOf()

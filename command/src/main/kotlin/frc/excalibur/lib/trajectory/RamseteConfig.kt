@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj2.command.Subsystem
 import java.util.function.BiConsumer
 import java.util.function.Supplier
 
-
 /**
  * A container class for decreasing the verbosity of constructing a [RamseteCommand].
  * @param poseSource the source of the robot pose. Can be the [odometry's `getPoseMeters()`]

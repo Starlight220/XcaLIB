@@ -9,10 +9,8 @@ class Pipeline<START, END>(
     }
 }
 
-
 interface PipelineStage<IN, OUT> {
     fun apply(value: IN): OUT
 
     operator fun invoke(value: IN): OUT = apply(value)
 }
-

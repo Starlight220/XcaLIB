@@ -5,7 +5,6 @@ package frc.excalibur.lib.ports
 import edu.wpi.first.wpilibj.I2C
 import edu.wpi.first.wpilibj.SPI
 
-
 private interface PortDevice {
     val PWM: List<Int>
     val DIO: List<Int>
@@ -13,7 +12,6 @@ private interface PortDevice {
     val SPI: SPI.Port
     val I2C: I2C.Port
 }
-
 
 object roboRIO : PortDevice {
     override val PWM: List<Int>
@@ -29,7 +27,6 @@ object roboRIO : PortDevice {
     override val I2C: I2C.Port
         get() = edu.wpi.first.wpilibj.I2C.Port.kOnboard
 }
-
 
 object CAN {
     private val list = (1..62).toList()

@@ -178,4 +178,3 @@ open class LimelightCamera(tablename: String = "limelight") {
      */
     object Pipelines : Map<String, Int> by mutableMapOf()
 }
-

@@ -1,13 +1,13 @@
 package frc.excalibur.lib.devices.can
 
+import com.revrobotics.CANEncoder as Encoder
+import com.revrobotics.CANError as Error
 import com.revrobotics.CANPIDController
+import com.revrobotics.CANSparkMax as SparkMax
 import com.revrobotics.CANSparkMax.ExternalFollower.kFollowerDisabled
 import com.revrobotics.ControlType
-import frc.excalibur.lib.math.PIDConfig
-import com.revrobotics.CANError as Error
-import com.revrobotics.CANSparkMax as SparkMax
 import edu.wpi.first.wpilibj.DriverStation as DS
-import com.revrobotics.CANEncoder as Encoder
+import frc.excalibur.lib.math.PIDConfig
 
 /**
  * A [Pair] of [Double]s.
